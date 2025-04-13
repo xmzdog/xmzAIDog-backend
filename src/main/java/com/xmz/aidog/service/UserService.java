@@ -1,8 +1,13 @@
 package com.xmz.aidog.service;
 
+import com.xmz.aidog.model.VO.LoginUserVo;
+import com.xmz.aidog.model.dto.user.UserLoginRequest;
 import com.xmz.aidog.model.dto.user.UserRegisterRequest;
 import com.xmz.aidog.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.http.HttpRequest;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
 * @author Administrator
@@ -11,4 +16,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserService extends IService<User> {
     Long register(UserRegisterRequest userRegisterRequest);
+
+    LoginUserVo userLogin(UserLoginRequest userLoginRequest , HttpServletRequest request);
+
+    LoginUserVo getLoginUser(HttpServletRequest httpServletRequest);
 }

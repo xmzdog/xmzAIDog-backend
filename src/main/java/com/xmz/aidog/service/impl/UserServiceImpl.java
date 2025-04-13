@@ -2,15 +2,23 @@ package com.xmz.aidog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.xmz.aidog.Constant.UserConstant;
 import com.xmz.aidog.exception.BusinessException;
+import com.xmz.aidog.model.VO.LoginUserVo;
+import com.xmz.aidog.model.dto.user.UserLoginRequest;
 import com.xmz.aidog.model.dto.user.UserRegisterRequest;
 import com.xmz.aidog.model.entity.User;
 import com.xmz.aidog.model.enums.ErrorCode;
 import com.xmz.aidog.service.UserService;
 import com.xmz.aidog.mapper.UserMapper;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Administrator
@@ -44,6 +52,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "密码和确认密码不相同");
         }
 
+        /**
+         * String.intern() 会返回字符串常量池中的唯一引用
+         * 使用synchronized 保证在多线程环境下，不同线程在注册相同账号（useraccount）时不会并发执行，避免数据库中插入重复账号的情况。
+         */
         synchronized (useraccount.intern()) {
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("useraccount", useraccount);
@@ -63,6 +75,54 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
 
     }
+
+    @Override
+    public LoginUserVo userLogin(UserLoginRequest userLoginRequest, HttpServletRequest httpRequest) {
+        if (userLoginRequest == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String useraccount = userLoginRequest.getUseraccount();
+        String userpassword = userLoginRequest.getUserpassword();
+        if (StringUtils.isAnyBlank(useraccount, userpassword)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("useraccount", useraccount);
+        User user = this.baseMapper.selectOne(queryWrapper);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR,"用户账号不存在");
+        }
+        String encryptpassword = DigestUtils.md5DigestAsHex((SALT + userpassword).getBytes());
+        if (!encryptpassword.equals(user.getUserpassword())) {
+            throw  new BusinessException(ErrorCode.PARAMS_ERROR,"密码错误");
+        }
+        // 使用session 记录登录状态
+        httpRequest.getSession().setAttribute(UserConstant.USER_LOGIN_STATE, user);
+        return this.User2LoginUserVo(user);
+    }
+
+
+    @Override
+    public LoginUserVo getLoginUser(HttpServletRequest httpServletRequest) {
+        User loginuser = (User) httpServletRequest.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
+        return this.User2LoginUserVo(loginuser);
+    }
+
+    /**
+     * 将User对象转成LoginUserVo
+     * @param user
+     * @return
+     */
+    public LoginUserVo User2LoginUserVo(User user) {
+        if (user == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        LoginUserVo loginUserVo = new LoginUserVo();
+        BeanUtils.copyProperties(user,loginUserVo);
+        return loginUserVo;
+    }
+
+
 }
 
 
