@@ -6,23 +6,26 @@
 
     <resultMap id="BaseResultMap" type="com.xmz.aidog.model.entity.User">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="useraccount" column="userAccount" jdbcType="VARCHAR"/>
-            <result property="userpassword" column="userPassword" jdbcType="VARCHAR"/>
-            <result property="unionid" column="unionId" jdbcType="VARCHAR"/>
-            <result property="mpopenid" column="mpOpenId" jdbcType="VARCHAR"/>
-            <result property="username" column="userName" jdbcType="VARCHAR"/>
-            <result property="useravatar" column="userAvatar" jdbcType="VARCHAR"/>
-            <result property="userprofile" column="userProfile" jdbcType="VARCHAR"/>
-            <result property="userrole" column="userRole" jdbcType="VARCHAR"/>
-            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="isdelete" column="isDelete" jdbcType="TINYINT"/>
+            <result property="userAccount" column="userAccount" jdbcType="VARCHAR"/>
+            <result property="userPassword" column="userPassword" jdbcType="VARCHAR"/>
+            <result property="unionId" column="unionId" jdbcType="VARCHAR"/>
+            <result property="mpOpenId" column="mpOpenId" jdbcType="VARCHAR"/>
+            <result property="userName" column="userName" jdbcType="VARCHAR"/>
+            <result property="userAvatar" column="userAvatar" jdbcType="VARCHAR"/>
+            <result property="userProfile" column="userProfile" jdbcType="VARCHAR"/>
+            <result property="userRole" column="userRole" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,userAccount,userPassword,
         unionId,mpOpenId,userName,
         userAvatar,userProfile,userRole,
-        createTime,updateTime,isDelete
+        createTime,updateTime,isDelete,
+        email,phone
     </sql>
 </mapper>

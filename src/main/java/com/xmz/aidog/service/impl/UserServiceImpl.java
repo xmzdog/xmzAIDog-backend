@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.xmz.aidog.Constant.UserConstant;
 import com.xmz.aidog.exception.BusinessException;
 import com.xmz.aidog.model.VO.LoginUserVo;
+import com.xmz.aidog.model.dto.user.UserInfoRequset;
 import com.xmz.aidog.model.dto.user.UserLoginRequest;
 import com.xmz.aidog.model.dto.user.UserRegisterRequest;
 import com.xmz.aidog.model.entity.User;
@@ -17,8 +18,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Base64;
 
 /**
  * @author Administrator
@@ -65,8 +69,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             }
             String encryptpassword = DigestUtils.md5DigestAsHex((SALT + userpassword).getBytes());
             User user = new User();
-            user.setUseraccount(useraccount);
-            user.setUserpassword(encryptpassword);
+            user.setUserAccount(useraccount);
+            user.setUserPassword(encryptpassword);
             boolean save = this.save(user);
             if (!save) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "注册失败，数据库异常");
@@ -93,7 +97,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR,"用户账号不存在");
         }
         String encryptpassword = DigestUtils.md5DigestAsHex((SALT + userpassword).getBytes());
-        if (!encryptpassword.equals(user.getUserpassword())) {
+        if (!encryptpassword.equals(user.getUserPassword())) {
             throw  new BusinessException(ErrorCode.PARAMS_ERROR,"密码错误");
         }
         // 使用session 记录登录状态
@@ -106,6 +110,72 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     public LoginUserVo getLoginUser(HttpServletRequest httpServletRequest) {
         User loginuser = (User) httpServletRequest.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
         return this.User2LoginUserVo(loginuser);
+    }
+
+
+    @Override
+    public Boolean userlogout(HttpServletRequest httpServletRequest) {
+        httpServletRequest.getSession().removeAttribute(UserConstant.USER_LOGIN_STATE);
+        return true;
+    }
+
+    @Override
+    public LoginUserVo uploadAvatar(MultipartFile file,HttpServletRequest httpServletRequest) {
+        if (file == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String originalFilename = file.getOriginalFilename();
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+        if (!".jpg".equalsIgnoreCase(suffix) && !".png".equalsIgnoreCase(suffix)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR,"只支持 JPG 或 PNG 格式的图片");
+        }
+        if (file.getSize() > 2 * 1024 * 1024) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR,"头像文件不能大于2M");
+        }
+        User user = (User) httpServletRequest.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR,"登录已过期");
+        }
+        Long id = user.getId();
+        String avatar;
+        try {
+             avatar = Base64.getEncoder().encodeToString(file.getBytes());
+        } catch (IOException e) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,e.getMessage());
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        user.setUserAvatar(avatar);
+        int update = this.baseMapper.update(user, queryWrapper);
+        if (update != 1) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR,"头像上传失败");
+        }
+        return this.User2LoginUserVo(user);
+    }
+
+    @Override
+    public LoginUserVo updateUserInfo(UserInfoRequset userInfoRequset, HttpServletRequest request) {
+        if (userInfoRequset == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String username = userInfoRequset.getUsername();
+        String email = userInfoRequset.getEmail();
+        String phone = userInfoRequset.getPhone();
+        if (StringUtils.isAnyBlank(username, email, phone)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR,"参数不能为空");
+        }
+        User user = (User) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
+        Long id = user.getId();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        user.setUserName(username);
+        user.setEmail(email);
+        user.setPhone(phone);
+        int update = this.baseMapper.update(user, queryWrapper);
+        if (update != 1) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR);
+        }
+        return this.User2LoginUserVo(user);
     }
 
     /**

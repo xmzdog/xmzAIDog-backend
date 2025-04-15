@@ -2,12 +2,14 @@ package com.xmz.aidog.controller;
 
 import com.xmz.aidog.common.BaseResponse;
 import com.xmz.aidog.model.VO.LoginUserVo;
+import com.xmz.aidog.model.dto.user.UserInfoRequset;
 import com.xmz.aidog.model.dto.user.UserLoginRequest;
 import com.xmz.aidog.model.dto.user.UserRegisterRequest;
 import com.xmz.aidog.service.UserService;
 import com.xmz.aidog.utils.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -71,6 +73,39 @@ public class UserController {
     @GetMapping("getloginuser")
     public BaseResponse<LoginUserVo> getLoginUser(HttpServletRequest httpServletRequest){
         LoginUserVo loginUserVo = userService.getLoginUser(httpServletRequest);
+        return ResultUtils.sucess(loginUserVo);
+    }
+
+    /**
+     *退出登录
+     * @return
+     */
+    @PostMapping("userlogout")
+    public BaseResponse<Boolean> userlogout(HttpServletRequest httpServletRequest){
+        Boolean userlogout = userService.userlogout(httpServletRequest);
+        return ResultUtils.sucess(userlogout);
+    }
+
+    /**
+     * 上传头像
+     * @param file
+     * @return
+     */
+    @PostMapping("uploadAvatar")
+    public BaseResponse<LoginUserVo> uploadAvatar(@RequestParam("file") MultipartFile file,HttpServletRequest httpServletRequest){
+        LoginUserVo loginUserVo = userService.uploadAvatar(file, httpServletRequest);
+        return ResultUtils.sucess(loginUserVo);
+    }
+
+    /**
+     * 设置用户信息
+     * @param userInfoRequset
+     * @param httpServletRequest
+     * @return
+     */
+    @PostMapping("updateUserInfo")
+    public BaseResponse<LoginUserVo> updateUserInfo(@RequestBody UserInfoRequset userInfoRequset,HttpServletRequest httpServletRequest){
+        LoginUserVo loginUserVo = userService.updateUserInfo(userInfoRequset, httpServletRequest);
         return ResultUtils.sucess(loginUserVo);
     }
 
