@@ -1,7 +1,7 @@
-package com.xmz.aidog.service;
+package generator.service;
 
+import generator.domain.AiAnswer;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xmz.aidog.model.entity.AiAnswer;
 
 /**
 * @author Administrator

@@ -1,10 +1,9 @@
-package com.xmz.aidog.service.impl;
+package generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import com.xmz.aidog.mapper.AiAnswerMapper;
-import com.xmz.aidog.model.entity.AiAnswer;
-import com.xmz.aidog.service.AiAnswerService;
+import generator.domain.AiAnswer;
+import generator.service.AiAnswerService;
+import generator.mapper.AiAnswerMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class AiAnswerServiceImpl extends ServiceImpl<AiAnswerMapper, AiAnswer>
-    implements AiAnswerService {
+    implements AiAnswerService{
 
 }
 

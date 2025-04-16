@@ -1,7 +1,7 @@
-package com.xmz.aidog.mapper;
+package generator.mapper;
 
+import generator.domain.UserQuestion;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xmz.aidog.model.entity.UserQuestion;
 
 /**
 * @author Administrator
