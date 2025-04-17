@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmz.xmzaidogbiz.mapper.AiAnswerMapper">
+
+    <resultMap id="BaseResultMap" type="com.xmz.xmzaidogbiz.model.entity.AiAnswer">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="question_id" column="question_id" jdbcType="INTEGER"/>
+            <result property="answer" column="answer" jdbcType="VARCHAR"/>
+            <result property="create_date" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="stop" column="stop" jdbcType="VARCHAR"/>
+            <result property="model" column="model" jdbcType="VARCHAR"/>
+            <result property="completion_tokens" column="completion_tokens" jdbcType="VARCHAR"/>
+            <result property="prompt_tokens" column="prompt_tokens" jdbcType="VARCHAR"/>
+            <result property="total_tokens" column="total_tokens" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,question_id,answer,
+        create_date,stop,model,
+        completion_tokens,prompt_tokens,total_tokens,
+        status
+    </sql>
+</mapper>

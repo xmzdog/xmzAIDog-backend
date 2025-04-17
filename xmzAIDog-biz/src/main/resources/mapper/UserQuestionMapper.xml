@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmz.xmzaidogbiz.mapper.UserQuestionMapper">
+
+    <resultMap id="BaseResultMap" type="com.xmz.xmzaidogbiz.model.entity.UserQuestion">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="user_id" column="user_id" jdbcType="BIGINT"/>
+            <result property="question" column="question" jdbcType="VARCHAR"/>
+            <result property="create_date" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="model" column="model" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,question,
+        create_date,model,status
+    </sql>
+</mapper>
