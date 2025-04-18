@@ -102,7 +102,6 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.xmz.aidog.AiDogApplication</mainClass>
-                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
