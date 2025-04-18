@@ -8,7 +8,13 @@ class XmzAiDogBizApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println("aaaaaa");
+        System.out.println("bbbbbb");
+        System.out.println("测试ai评审");
+        System.out.println("测试ai评审1");
+        System.out.println("测试ai评审2");
+        System.out.println("测试ai评审3");
+        System.out.println("测试ai评审4");
+        System.out.println("测试ai评审");
         System.out.println("测试ai评审");
     }
 
