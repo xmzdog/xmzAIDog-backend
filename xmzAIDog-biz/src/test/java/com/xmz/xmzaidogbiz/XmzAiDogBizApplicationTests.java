@@ -8,6 +8,7 @@ class XmzAiDogBizApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("aaaaaa");
     }
 
 }
