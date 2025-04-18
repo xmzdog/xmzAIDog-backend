@@ -27,6 +27,5 @@ jobs:
       - name: Run Java code
         run: |
           cd openai-code-review-sdk/src/main/java
-          javac -d ../../../../out com/xmz/sdk/OpenAiCodeReview.java
-          # 使用 -cp 参数指定类路径
-          java -cp ../../../../out com.xmz.sdk.OpenAiCodeReview
+          javac com/xmz/sdk/OpenAICodeReview.java
+          java com.xmz.sdk.OpenAiCodeReview
