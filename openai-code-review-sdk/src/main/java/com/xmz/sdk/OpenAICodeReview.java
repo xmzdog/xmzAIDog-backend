@@ -1,3 +1,5 @@
+package com.xmz.sdk;
+
 /**
  * Created with IntelliJ IDEA.
  * User: xiangmz

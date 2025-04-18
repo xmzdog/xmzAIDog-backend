@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xmzAIDog-biz</module>
+        <module>openai-code-review-sdk</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
