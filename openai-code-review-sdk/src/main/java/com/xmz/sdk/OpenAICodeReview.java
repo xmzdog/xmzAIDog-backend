@@ -33,7 +33,6 @@ public class OpenAICodeReview {
             throw new RuntimeException("token is null");
         }
 
-
         // 代码检出
 
         ProcessBuilder processBuilder = new ProcessBuilder("git", "diff", "HEAD~1", "HEAD");
@@ -119,7 +118,7 @@ public class OpenAICodeReview {
         Git git = Git.cloneRepository()
                 .setURI("git@github.com:xmzdog/openai-code-review-log.git")
                 .setDirectory(new File("repo"))
-                .setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, ""))
+                .setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, "Xmz66666"))
                 .call();
 
         String dateFolderName = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
