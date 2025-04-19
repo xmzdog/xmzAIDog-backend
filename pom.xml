@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.6.13</spring-boot.version>
         <spring-boot-starter-test>2.7.18</spring-boot-starter-test>
-        <org.json>20240205</org.json>
+        <com.alibaba.fastjson2>2.0.49</com.alibaba.fastjson2>
         <com.baomidou>3.5.11</com.baomidou>
         <com.github.xiaoymin>3.0.3</com.github.xiaoymin>
         <org.apache.commons>3.12.0</org.apache.commons>
@@ -35,11 +35,11 @@
                 <scope>import</scope>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>org.json</groupId>-->
-<!--                <artifactId>json</artifactId>-->
-<!--                <version>${org.json}</version> &lt;!&ndash; 请根据需要选择合适的版本 &ndash;&gt;-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${com.alibaba.fastjson2}</version> <!-- 建议使用最新稳定版 -->
+            </dependency>
 
             <dependency>
                 <groupId>com.baomidou</groupId>
