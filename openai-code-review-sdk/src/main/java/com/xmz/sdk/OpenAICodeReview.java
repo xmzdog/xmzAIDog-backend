@@ -26,7 +26,13 @@ import java.util.Random;
  */
 public class OpenAICodeReview {
     public static void main(String[] args) throws Exception {
-        System.out.println("测试代码评审");
+        System.out.println("openai 代码评审，测试执行");
+
+        String token = System.getenv("GITHUB_TOKEN");
+        if (null == token || token.isEmpty()) {
+            throw new RuntimeException("token is null");
+        }
+
 
         // 代码检出
 
@@ -50,6 +56,10 @@ public class OpenAICodeReview {
         //2. ChatGLM api 代码评审
         String log = codeReview(stringBuilder.toString());
         System.out.println("code review：" + log);
+
+        // 3. 写入评审日志
+        String logUrl = writeLog(token, log);
+        System.out.println("writeLog：" + logUrl);
 
 
     }
