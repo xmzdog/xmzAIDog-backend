@@ -9,7 +9,7 @@ class XmzAiDogBizApplicationTests {
     @Test
     void contextLoads() {
         System.out.println("bbbbbb");
-        System.out.println("测试ai评审xmz");
+        System.out.println("测试openai代码评审日志输出");
         System.out.println("测试ai评审11");
         System.out.println("测试ai评审22");
         System.out.println("测试ai评审33");
