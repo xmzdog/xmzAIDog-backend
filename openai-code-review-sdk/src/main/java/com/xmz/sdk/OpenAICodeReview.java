@@ -118,9 +118,9 @@ public class OpenAICodeReview {
     private static String writeLog(String token, String log) throws Exception {
         System.out.println("进入 writeLog=======================================");
         Git git = Git.cloneRepository()
-                .setURI("git@github.com:xmzdog/openai-code-review-log.git")
+                .setURI("https://github.com/xmzdog/openai-code-review-log.git")
                 .setDirectory(new File("repo"))
-                .setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, "Xmz66666"))
+                .setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, ""))
                 .call();
 
         String dateFolderName = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
