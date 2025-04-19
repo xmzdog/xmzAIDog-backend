@@ -56,6 +56,7 @@ public class OpenAICodeReview {
         String log = codeReview(stringBuilder.toString());
         System.out.println("code review：" + log);
 
+        System.out.println("开始输出评审日志========================================");
         // 3. 写入评审日志
         String logUrl = writeLog(token, log);
         System.out.println("writeLog：" + logUrl);
@@ -115,6 +116,7 @@ public class OpenAICodeReview {
     }
 
     private static String writeLog(String token, String log) throws Exception {
+        System.out.println("进入 writeLog=======================================");
         Git git = Git.cloneRepository()
                 .setURI("git@github.com:xmzdog/openai-code-review-log.git")
                 .setDirectory(new File("repo"))
