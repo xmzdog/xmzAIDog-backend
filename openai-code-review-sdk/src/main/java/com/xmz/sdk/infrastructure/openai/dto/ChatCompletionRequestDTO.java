@@ -1,8 +1,10 @@
-package com.xmz.sdk.model;
+package com.xmz.sdk.infrastructure.openai.dto;
+
+import com.xmz.sdk.model.Model;
 
 import java.util.List;
 
-public class ChatCompletionRequest {
+public class ChatCompletionRequestDTO {
 
     private String model = Model.GLM_4_FLASH.getCode();
     private List<Prompt> messages;

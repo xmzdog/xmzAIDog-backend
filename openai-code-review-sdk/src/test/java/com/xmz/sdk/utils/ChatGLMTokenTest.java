@@ -1,7 +1,7 @@
 package com.xmz.sdk.utils;
 
 import com.alibaba.fastjson2.JSON;
-import com.xmz.sdk.model.ChatCompletionSyncResponse;
+import com.xmz.sdk.infrastructure.openai.dto.ChatCompletionSyncResponseDTO;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,8 +12,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-
-import static org.junit.Assert.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -78,7 +76,7 @@ public class ChatGLMTokenTest {
         connection.disconnect();
         System.out.println(content);
 
-        ChatCompletionSyncResponse response = JSON.parseObject(content.toString(), ChatCompletionSyncResponse.class);
+        ChatCompletionSyncResponseDTO response = JSON.parseObject(content.toString(), ChatCompletionSyncResponseDTO.class);
         System.out.println(response.getChoices().get(0).getMessage().getContent());
 
     }
