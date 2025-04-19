@@ -3,8 +3,10 @@ package com.xmz.sdk;
 import com.alibaba.fastjson2.JSON;
 import com.xmz.sdk.model.ChatCompletionRequest;
 import com.xmz.sdk.model.ChatCompletionSyncResponse;
+import com.xmz.sdk.model.Message;
 import com.xmz.sdk.model.Model;
 import com.xmz.sdk.utils.ChatGLMToken;
+import com.xmz.sdk.utils.WXAccessTokenUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
@@ -16,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +37,6 @@ public class OpenAICodeReview {
         }
 
         // 代码检出
-
         ProcessBuilder processBuilder = new ProcessBuilder("git", "diff", "HEAD~1", "HEAD");
         processBuilder.directory(new File("."));
 
@@ -56,13 +58,56 @@ public class OpenAICodeReview {
         String log = codeReview(stringBuilder.toString());
         System.out.println("code review：" + log);
 
-        System.out.println("开始输出评审日志========================================");
+        System.out.println("=======================开始输出评审日志========================================");
         // 3. 写入评审日志
         String logUrl = writeLog(token, log);
         System.out.println("writeLog：" + logUrl);
 
+        // 4. 消息通知
+        System.out.println("pushMessage：" + logUrl);
+        pushMessage(logUrl);
+
 
     }
+
+    private static void pushMessage(String logUrl) {
+        String accessToken = WXAccessTokenUtils.getAccessToken();
+        System.out.println(accessToken);
+
+        Message message = new Message();
+        message.put("project", "big-market");
+        message.put("review", logUrl);
+        message.put("model", Model.GLM_4.toString());
+        message.setUrl(logUrl);
+
+        String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
+        sendPostRequest(url, JSON.toJSONString(message));
+    }
+
+    private static void sendPostRequest(String urlString, String jsonBody) {
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json; utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+
+            try (Scanner scanner = new Scanner(conn.getInputStream(), StandardCharsets.UTF_8.name())) {
+                String response = scanner.useDelimiter("\\A").next();
+                System.out.println(response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
     private static String codeReview(String diffCode) throws Exception {
@@ -83,7 +128,6 @@ public class OpenAICodeReview {
         chatCompletionRequest.setModel(Model.GLM_4_FLASH.getCode());
         chatCompletionRequest.setMessages(new ArrayList<ChatCompletionRequest.Prompt>() {
             private static final long serialVersionUID = -7988151926241837899L;
-
             {
                 add(new ChatCompletionRequest.Prompt("user", "你是一个高级编程架构师，精通各类场景方案、架构设计和编程语言请，请您根据git diff记录，对代码做出评审。代码如下:"));
                 add(new ChatCompletionRequest.Prompt("user", diffCode));
@@ -116,7 +160,7 @@ public class OpenAICodeReview {
     }
 
     private static String writeLog(String token, String log) throws Exception {
-        System.out.println("进入 writeLog=======================================");
+        System.out.println("============================== 进入 writeLog =======================================");
         Git git = Git.cloneRepository()
                 .setURI("https://github.com/xmzdog/openai-code-review-log.git")
                 .setDirectory(new File("repo"))
@@ -134,7 +178,6 @@ public class OpenAICodeReview {
         try (FileWriter writer = new FileWriter(newFile)) {
             writer.write(log);
         }
-
         git.add().addFilepattern(dateFolderName + "/" + fileName).call();
         git.commit().setMessage("Add new file via GitHub Actions").call();
         git.push().setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, "")).call();
