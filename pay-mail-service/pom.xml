@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xmz</groupId>
+        <artifactId>AIDog</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>pay-mail-service</artifactId>
+    <packaging>jar</packaging>
+    <name>pay-mail-service</name>
+
+    <dependencies>
+        <!--            Retrofit 的核心库，提供声明式接口（Java 注解）的网络请求能力。-->
+        <!--            1.自动处理 URL 拼接、请求发起、响应封装 2.可配合各种转换器使用，如 JSON、XML、ProtoBuf    3.支持通过接口定义 HTTP 请求-->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>retrofit</artifactId>
+        </dependency>
+        <!--            响应体转换器-->
+        <!--            把 Retrofit 返回的 JSON 数据自动转换为 Java 对象，使用 Jackson 作为序列化/反序列化工具-->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-jackson</artifactId>
+        </dependency>
+        <!--            让 Retrofit 支持 RxJava 2 的响应式编程模型   1.把返回类型从 Call<T> 改为 Observable<T> 或 Flowable<T>
+                           2.支持链式操作、线程切换、流式编排等响应式操作-->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>adapter-rxjava2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xmz</groupId>
+            <artifactId>pay-mail-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--        缓存服务-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>pay-mail-service</finalName>
+    </build>
+</project>
