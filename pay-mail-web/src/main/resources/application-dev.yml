@@ -1,0 +1,35 @@
+server:
+  port: 8181
+  tomcat:
+    max-connections: 20
+    threads:
+      max: 20
+      min-spare: 10
+    accept-count: 10
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.117.163.255:3306/xmzdb
+    username: root
+    password: xmzpassword
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000         # 等待连接超时时间（毫秒）
+      max-lifetime: 180000              # 连接最大生命周期（毫秒），建议小于数据库 idle 超时时间（如 3分钟）
+      idle-timeout: 60000               # 空闲连接超时时间
+      validation-timeout: 5000          # 连接校验的超时时间
+      connection-test-query: SELECT 1  # 心跳 SQL，确保拿出的连接是可用的
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+# 微信公众号对接
+weixin:
+  config:
+    originalid:
+    token:
+    app-id:
+    app-secret:
+    template-id:

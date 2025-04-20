@@ -11,6 +11,11 @@
     <modules>
         <module>xmzAIDog-biz</module>
         <module>openai-code-review-sdk</module>
+        <module>pay-mail-common</module>
+        <module>pay-mail-dto</module>
+        <module>pay-mail-domain</module>
+        <module>pay-mail-service</module>
+        <module>pay-mail-web</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -24,6 +29,8 @@
         <org.apache.commons>3.12.0</org.apache.commons>
         <mysql-connector-java>8.0.32</mysql-connector-java>
         <lombok>1.18.34</lombok>
+        <com.thoughtworks.xstream>1.4.18</com.thoughtworks.xstream>
+        <dom4j>1.6.1</dom4j>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -81,6 +88,46 @@
                 <version>${spring-boot-starter-test}</version>
                 <scope>test</scope>
             </dependency>
+<!--            XML 序列化/反序列化库的注解类，用于把 Java 对象和 XML 映射。-->
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${com.thoughtworks.xstream}</version>
+            </dependency>
+<!--            经典且高性能的 XML 操作框架，被广泛用于处理 XML 文档的读取、创建、修改、XPath 查询等功能。-->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j}</version>
+            </dependency>
+<!--            Retrofit 的核心库，提供声明式接口（Java 注解）的网络请求能力。-->
+<!--            1.自动处理 URL 拼接、请求发起、响应封装 2.可配合各种转换器使用，如 JSON、XML、ProtoBuf    3.支持通过接口定义 HTTP 请求-->
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+<!--            响应体转换器-->
+<!--            把 Retrofit 返回的 JSON 数据自动转换为 Java 对象，使用 Jackson 作为序列化/反序列化工具-->
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+<!--            让 Retrofit 支持 RxJava 2 的响应式编程模型   1.把返回类型从 Call<T> 改为 Observable<T> 或 Flowable<T>
+                   2.支持链式操作、线程切换、流式编排等响应式操作-->
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava2</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+            <!--        缓存服务-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>32.1.3-jre</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
