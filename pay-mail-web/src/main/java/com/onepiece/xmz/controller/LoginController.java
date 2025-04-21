@@ -3,6 +3,10 @@ package com.onepiece.xmz.controller;
 import com.onepiece.xmz.common.constants.Constants;
 import com.onepiece.xmz.common.response.Response;
 import com.onepiece.xmz.service.ILoginService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +23,7 @@ import javax.annotation.Resource;
 @Slf4j
 @RestController()
 @CrossOrigin("*")
+@Api(tags = "扫码登陆接口")
 @RequestMapping("/api/v1/login/")
 public class LoginController {
 
@@ -29,6 +34,7 @@ public class LoginController {
      *
      * @return
      */
+    @ApiOperation(value = "获取公众号登陆凭证ticket")
     @RequestMapping(value = "weixin_qrcode_ticket", method = RequestMethod.GET)
     public Response<String> weixinQrCodeTicket() {
         try {
@@ -51,6 +57,10 @@ public class LoginController {
     /**
      *
      */
+    @ApiOperation(value = "检查登陆结果", notes = "根据微信扫码返回的 ticket，检测登录状态并获取对应的 openidToken")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "ticket", value = "微信扫码返回的 ticket，用于验证用户登录状态", required = true, dataType = "String", paramType = "query")
+    })
     @RequestMapping(value = "check_login", method = RequestMethod.GET)
     public Response<String> checkLogin(@RequestParam String ticket) {
         try {

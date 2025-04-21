@@ -1,0 +1,744 @@
+25-04-21.14:04:44.441 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 23296 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.14:04:44.443 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.14:04:45.428 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.14:04:45.904 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.14:04:45.917 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.14:04:45.918 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.14:04:45.918 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.14:04:46.139 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.14:04:46.139 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1646 ms
+25-04-21.14:04:46.998 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+25-04-21.14:04:47.003 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-04-21.14:04:47.121 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25-04-21.14:04:47.187 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.onepiece.xmz.Application.main(Application.java:20)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1332)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 33 common frames omitted
+25-04-21.14:05:41.179 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 23508 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.14:05:41.183 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.14:05:42.401 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.14:05:43.036 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.14:05:43.049 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.14:05:43.050 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.14:05:43.051 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.14:05:43.281 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.14:05:43.281 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2038 ms
+25-04-21.14:05:43.904 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+25-04-21.14:05:43.907 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-04-21.14:05:43.927 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25-04-21.14:05:43.964 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.onepiece.xmz.Application.main(Application.java:20)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'weixinLoginServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.config.template_id' in value "${weixin.config.template_id}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1332)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 33 common frames omitted
+25-04-21.14:06:30.524 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 24548 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.14:06:30.527 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.14:06:31.742 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.14:06:32.420 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.14:06:32.434 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.14:06:32.435 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.14:06:32.435 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.14:06:32.680 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.14:06:32.680 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2090 ms
+25-04-21.14:06:34.404 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+25-04-21.14:06:34.414 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-04-21.14:06:34.438 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25-04-21.14:06:34.470 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (the profiles dev are currently active).
+
+25-04-21.14:14:17.463 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 19820 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.14:14:17.468 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.14:14:18.847 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.14:14:19.457 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.14:14:19.471 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.14:14:19.472 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.14:14:19.473 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.14:14:19.727 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.14:14:19.727 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2183 ms
+25-04-21.14:14:21.501 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.14:14:21.548 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.14:14:21.844 [main            ] INFO  Application            - Started Application in 5.628 seconds (JVM running for 7.104)
+25-04-21.14:15:08.808 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.14:15:08.809 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.14:15:08.813 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 4 ms
+25-04-21.14:23:18.271 [http-nio-8181-exec-9] INFO  WeixinPortalController - 微信公众号验签信息开始 [null, null, null, null]
+25-04-21.14:23:18.294 [http-nio-8181-exec-9] ERROR WeixinPortalController - 微信公众号验签信息失败 [null, null, null, null]
+java.lang.IllegalArgumentException: 请求参数非法，请核实!
+	at com.onepiece.xmz.controller.WeixinPortalController.validate(WeixinPortalController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.17:12:23.347 [http-nio-8181-exec-3] INFO  WeixinPortalController - 微信公众号验签信息开始 [c568a5251477c4a72e32fc1f9e204f6973e80668, 1745226742, 580896307, 4374862232225746934]
+25-04-21.17:12:23.433 [http-nio-8181-exec-3] INFO  WeixinPortalController - 微信公众号验签信息完成 check：false
+25-04-21.17:12:35.636 [http-nio-8181-exec-2] INFO  WeixinPortalController - 微信公众号验签信息开始 [null, null, null, null]
+25-04-21.17:12:35.647 [http-nio-8181-exec-2] ERROR WeixinPortalController - 微信公众号验签信息失败 [null, null, null, null]
+java.lang.IllegalArgumentException: 请求参数非法，请核实!
+	at com.onepiece.xmz.controller.WeixinPortalController.validate(WeixinPortalController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.17:12:38.958 [http-nio-8181-exec-1] INFO  WeixinPortalController - 微信公众号验签信息开始 [null, null, null, null]
+25-04-21.17:12:38.959 [http-nio-8181-exec-1] ERROR WeixinPortalController - 微信公众号验签信息失败 [null, null, null, null]
+java.lang.IllegalArgumentException: 请求参数非法，请核实!
+	at com.onepiece.xmz.controller.WeixinPortalController.validate(WeixinPortalController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.17:14:46.087 [http-nio-8181-exec-3] INFO  WeixinPortalController - 微信公众号验签信息开始 [1b537d3451623288acd3dc59a695b9b41f21bd1e, 1745226885, 247664733, 1727106716300431255]
+25-04-21.17:14:46.088 [http-nio-8181-exec-3] INFO  WeixinPortalController - 微信公众号验签信息完成 check：false
+25-04-21.17:14:53.211 [http-nio-8181-exec-4] INFO  WeixinPortalController - 微信公众号验签信息开始 [2419c7966fc3ddbcf55c84798bfae4ae1b9e4326, 1745226892, 906834814, 1665363220024921487]
+25-04-21.17:14:53.211 [http-nio-8181-exec-4] INFO  WeixinPortalController - 微信公众号验签信息完成 check：false
+25-04-21.17:20:31.523 [http-nio-8181-exec-2] INFO  WeixinPortalController - 微信公众号验签信息开始 [cfe239319ac902040dbaf820fa7f341074223549, 1745227230, 645334393, 8775813601713713119]
+25-04-21.17:20:31.523 [http-nio-8181-exec-2] INFO  WeixinPortalController - 微信公众号验签信息完成 check：false
+25-04-21.17:20:49.243 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 8816 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.17:20:49.248 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.17:20:50.809 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.17:20:51.606 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.17:20:51.626 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.17:20:51.627 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.17:20:51.628 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.17:20:51.988 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.17:20:51.989 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2651 ms
+25-04-21.17:20:54.309 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.17:20:54.377 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.17:20:54.789 [main            ] INFO  Application            - Started Application in 6.654 seconds (JVM running for 8.016)
+25-04-21.17:21:05.653 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.17:21:05.653 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.17:21:05.657 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 4 ms
+25-04-21.17:21:05.705 [http-nio-8181-exec-1] INFO  WeixinPortalController - 微信公众号验签信息开始 [61f546151cd834a1d72639600af0ab8543eebf59, 1745227264, 1671260260, 2424256612255821768]
+25-04-21.17:21:05.723 [http-nio-8181-exec-1] INFO  WeixinPortalController - 微信公众号验签信息完成 check：true
+25-04-21.18:36:48.158 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 22684 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.18:36:48.162 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.18:36:49.353 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.18:36:49.959 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.18:36:49.972 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.18:36:49.973 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.18:36:49.973 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.18:36:50.213 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.18:36:50.213 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1968 ms
+25-04-21.18:36:51.882 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.18:36:51.929 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.18:36:52.225 [main            ] INFO  Application            - Started Application in 5.012 seconds (JVM running for 6.27)
+25-04-21.18:37:08.853 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.18:37:08.853 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.18:37:08.859 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 5 ms
+25-04-21.18:37:18.203 [http-nio-8181-exec-4] INFO  WeixinPortalController - 微信公众号验签信息开始 [null, null, null, null]
+25-04-21.18:37:18.226 [http-nio-8181-exec-4] ERROR WeixinPortalController - 微信公众号验签信息失败 [null, null, null, null]
+java.lang.IllegalArgumentException: 请求参数非法，请核实!
+	at com.onepiece.xmz.controller.WeixinPortalController.validate(WeixinPortalController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.18:38:05.044 [http-nio-8181-exec-5] INFO  LoginController        - 生成微信扫码登录 ticket:gQGD8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY3hQTk5JaW9lUkoxOGNKSmhFMTEAAgQMIAZoAwQAjScA
+25-04-21.18:39:10.690 [http-nio-8181-exec-8] INFO  LoginController        - 扫码检测登录结果 ticket:gQGD8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY3hQTk5JaW9lUkoxOGNKSmhFMTEAAgQMIAZoAwQAjScA openidToken:null
+25-04-21.18:51:52.651 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 6192 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.18:51:52.654 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.18:51:53.660 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.18:51:54.192 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.18:51:54.203 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.18:51:54.204 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.18:51:54.204 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.18:51:54.389 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.18:51:54.389 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1679 ms
+25-04-21.18:51:55.950 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.18:51:55.987 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.18:51:56.282 [main            ] INFO  Application            - Started Application in 4.436 seconds (JVM running for 5.638)
+25-04-21.18:52:00.478 [http-nio-8181-exec-2] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.18:52:00.479 [http-nio-8181-exec-2] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.18:52:00.481 [http-nio-8181-exec-2] INFO  DispatcherServlet      - Completed initialization in 2 ms
+25-04-21.18:52:09.239 [http-nio-8181-exec-4] ERROR [dispatcherServlet]    - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.UnsupportedOperationException: 这是一个文档展示接口，无实际功能。请使用说明中的链接进行访问。] with root cause
+java.lang.UnsupportedOperationException: 这是一个文档展示接口，无实际功能。请使用说明中的链接进行访问。
+	at com.onepiece.xmz.controller.ExternalApiDocController.weixinQrcodeDoc(ExternalApiDocController.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.18:54:11.238 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 3332 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.18:54:11.242 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.18:54:12.261 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.18:54:12.835 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.18:54:12.849 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.18:54:12.850 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.18:54:12.851 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.18:54:13.082 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.18:54:13.082 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1778 ms
+25-04-21.18:54:14.609 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.18:54:14.671 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.18:54:14.974 [main            ] INFO  Application            - Started Application in 4.549 seconds (JVM running for 5.863)
+25-04-21.18:56:49.396 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 10268 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.18:56:49.400 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.18:56:50.431 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.18:56:50.990 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.18:56:51.003 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.18:56:51.003 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.18:56:51.003 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.18:56:51.205 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.18:56:51.205 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1748 ms
+25-04-21.18:56:51.295 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'externalApiDocController' defined in file [D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes\com\onepiece\xmz\controller\ExternalApiDocController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.web.client.RestTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+25-04-21.18:56:51.299 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-04-21.18:56:51.319 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25-04-21.18:56:51.352 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.onepiece.xmz.controller.ExternalApiDocController required a bean of type 'org.springframework.web.client.RestTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.web.client.RestTemplate' in your configuration.
+
+25-04-21.18:59:26.077 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 144 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.18:59:26.082 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.18:59:27.401 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.18:59:27.999 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.18:59:28.012 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.18:59:28.012 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.18:59:28.012 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.18:59:28.219 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.18:59:28.219 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2069 ms
+25-04-21.18:59:28.338 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'externalApiDocController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.qrcode.api.url' in value "${weixin.qrcode.api.url}"
+25-04-21.18:59:28.341 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-04-21.18:59:28.361 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+25-04-21.18:59:28.394 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'externalApiDocController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.qrcode.api.url' in value "${weixin.qrcode.api.url}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at com.onepiece.xmz.Application.main(Application.java:20)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'weixin.qrcode.api.url' in value "${weixin.qrcode.api.url}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1332)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 17 common frames omitted
+25-04-21.19:00:17.939 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 16992 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.19:00:17.944 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.19:00:19.551 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.19:00:20.363 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.19:00:20.383 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.19:00:20.386 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.19:00:20.387 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.19:00:20.701 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.19:00:20.701 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2662 ms
+25-04-21.19:00:23.022 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.19:00:23.070 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.19:00:23.448 [main            ] INFO  Application            - Started Application in 6.839 seconds (JVM running for 8.315)
+25-04-21.19:00:42.413 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.19:00:42.413 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.19:00:42.417 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
+25-04-21.19:00:49.391 [http-nio-8181-exec-4] INFO  LoginController        - 扫码检测登录结果 ticket:gQGD8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY3hQTk5JaW9lUkoxOGNKSmhFMTEAAgQMIAZoAwQAjScA openidToken:null
+25-04-21.19:00:55.348 [http-nio-8181-exec-5] INFO  LoginController        - 生成微信扫码登录 ticket:gQEl8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY19LeE5uaW9lUkoxOUNPSjFFMVAAAgRmJQZoAwQAjScA
+25-04-21.19:06:50.975 [http-nio-8181-exec-9] INFO  WeixinPortalController - 接收微信公众号信息请求oEti17SAVHCKZiXwsADODuViZFtU开始 <xml><ToUserName><![CDATA[gh_5c4a22337280]]></ToUserName>
+<FromUserName><![CDATA[oEti17SAVHCKZiXwsADODuViZFtU]]></FromUserName>
+<CreateTime>1745233609</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[SCAN]]></Event>
+<EventKey><![CDATA[100601]]></EventKey>
+<Ticket><![CDATA[gQEl8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY19LeE5uaW9lUkoxOUNPSjFFMVAAAgRmJQZoAwQAjScA]]></Ticket>
+</xml>
+25-04-21.19:06:52.445 [http-nio-8181-exec-2] INFO  WeixinPortalController - 接收微信公众号信息请求oEti17SAVHCKZiXwsADODuViZFtU开始 <xml><ToUserName><![CDATA[gh_5c4a22337280]]></ToUserName>
+<FromUserName><![CDATA[oEti17SAVHCKZiXwsADODuViZFtU]]></FromUserName>
+<CreateTime>1745233611</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>3953405659021901826</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+25-04-21.19:06:52.463 [http-nio-8181-exec-2] ERROR WeixinPortalController - 接收微信公众号信息请求oEti17SAVHCKZiXwsADODuViZFtU失败 <xml><ToUserName><![CDATA[gh_5c4a22337280]]></ToUserName>
+<FromUserName><![CDATA[oEti17SAVHCKZiXwsADODuViZFtU]]></FromUserName>
+<CreateTime>1745233611</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>3953405659021901826</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+com.thoughtworks.xstream.converters.reflection.AbstractReflectionConverter$UnknownFieldException: No such field com.onepiece.xmz.common.weixin.MessageTextEntity.MsgID
+---- Debugging information ----
+message             : No such field com.onepiece.xmz.common.weixin.MessageTextEntity.MsgID
+field               : MsgID
+class               : com.onepiece.xmz.common.weixin.MessageTextEntity
+required-type       : com.onepiece.xmz.common.weixin.MessageTextEntity
+converter-type      : com.thoughtworks.xstream.converters.reflection.ReflectionConverter
+version             : 1.4.18
+-------------------------------
+	at com.thoughtworks.xstream.converters.reflection.AbstractReflectionConverter.handleUnknownField(AbstractReflectionConverter.java:520)
+	at com.thoughtworks.xstream.converters.reflection.AbstractReflectionConverter.doUnmarshal(AbstractReflectionConverter.java:371)
+	at com.thoughtworks.xstream.converters.reflection.AbstractReflectionConverter.unmarshal(AbstractReflectionConverter.java:277)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convert(TreeUnmarshaller.java:72)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:66)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:50)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.start(TreeUnmarshaller.java:134)
+	at com.thoughtworks.xstream.core.AbstractTreeMarshallingStrategy.unmarshal(AbstractTreeMarshallingStrategy.java:32)
+	at com.thoughtworks.xstream.XStream.unmarshal(XStream.java:1391)
+	at com.thoughtworks.xstream.XStream.unmarshal(XStream.java:1376)
+	at com.thoughtworks.xstream.XStream.fromXML(XStream.java:1261)
+	at com.thoughtworks.xstream.XStream.fromXML(XStream.java:1252)
+	at com.onepiece.xmz.common.weixin.XmlUtil.xmlToBean(XmlUtil.java:155)
+	at com.onepiece.xmz.controller.WeixinPortalController.post(WeixinPortalController.java:68)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+25-04-21.19:07:10.461 [http-nio-8181-exec-4] INFO  LoginController        - 扫码检测登录结果 ticket:gQEl8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY19LeE5uaW9lUkoxOUNPSjFFMVAAAgRmJQZoAwQAjScA openidToken:oEti17SAVHCKZiXwsADODuViZFtU
+25-04-21.19:08:06.695 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 19008 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.19:08:06.698 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.19:08:07.740 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.19:08:08.343 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.19:08:08.356 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.19:08:08.357 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.19:08:08.357 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.19:08:08.557 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.19:08:08.557 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1801 ms
+25-04-21.19:08:10.314 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.19:08:10.369 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.19:08:10.714 [main            ] INFO  Application            - Started Application in 4.831 seconds (JVM running for 6.144)
+25-04-21.19:08:12.564 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.19:08:12.564 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.19:08:12.567 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
+25-04-21.19:08:22.891 [http-nio-8181-exec-4] INFO  LoginController        - 生成微信扫码登录 ticket:gQGF8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUEc5YU10aW9lUkoxOENRSmhFMUUAAgQmJwZoAwQAjScA
+25-04-21.19:16:43.255 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 4236 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.19:16:43.258 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.19:16:44.463 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.19:16:45.124 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.19:16:45.153 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.19:16:45.157 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.19:16:45.159 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.19:16:45.432 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.19:16:45.432 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2106 ms
+25-04-21.19:16:47.285 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.19:16:47.337 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.19:16:47.677 [main            ] WARN  OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void
+25-04-21.19:16:47.766 [main            ] INFO  Application            - Started Application in 5.492 seconds (JVM running for 6.933)
+25-04-21.19:16:49.594 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.19:16:49.594 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.19:16:49.597 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
