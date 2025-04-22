@@ -58,6 +58,11 @@
         </dependency>
         <dependency>
             <groupId>com.xmz</groupId>
+            <artifactId>pay-mail-dto</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xmz</groupId>
             <artifactId>pay-mail-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

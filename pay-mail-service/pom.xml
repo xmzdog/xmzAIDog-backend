@@ -31,8 +31,20 @@
         </dependency>
 
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>com.xmz</groupId>
             <artifactId>pay-mail-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xmz</groupId>
+            <artifactId>pay-mail-dto</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -57,6 +69,7 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

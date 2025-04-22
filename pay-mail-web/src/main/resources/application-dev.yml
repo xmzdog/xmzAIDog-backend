@@ -42,3 +42,7 @@ weixin:
   qrcode:
     api:
       url: https://mp.weixin.qq.com/cgi-bin/showqrcode
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true  # ✅ 开启下划线自动转驼峰

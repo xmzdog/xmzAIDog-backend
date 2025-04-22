@@ -537,3 +537,5 @@ version             : 1.4.18
 25-04-21.19:08:07.740 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
 25-04-21.19:16:44.463 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
 25-04-21.19:16:47.677 [main            ] WARN  OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void
+25-04-21.19:17:25.380 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.19:17:29.108 [main            ] WARN  OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void

@@ -742,3 +742,19 @@ version             : 1.4.18
 25-04-21.19:16:49.594 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
 25-04-21.19:16:49.594 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 25-04-21.19:16:49.597 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
+25-04-21.19:17:23.832 [main            ] INFO  Application            - Starting Application using Java 1.8.0_411 on DESKTOP-BPOGC9G with PID 13564 (D:\xmz\xmzai\xmzAIDog-backend\pay-mail-web\target\classes started by Administrator in D:\xmz\xmzai\xmzAIDog-backend)
+25-04-21.19:17:23.838 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-04-21.19:17:25.380 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[com.onepiece.xmz]' package. Please check your configuration.
+25-04-21.19:17:26.218 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8181 (http)
+25-04-21.19:17:26.235 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8181"]
+25-04-21.19:17:26.236 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-04-21.19:17:26.236 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.68]
+25-04-21.19:17:26.553 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-04-21.19:17:26.553 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2623 ms
+25-04-21.19:17:28.611 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8181"]
+25-04-21.19:17:28.677 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8181 (http) with context path ''
+25-04-21.19:17:29.108 [main            ] WARN  OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: String, dataTypeClass: class java.lang.Void
+25-04-21.19:17:29.190 [main            ] INFO  Application            - Started Application in 6.354 seconds (JVM running for 7.744)
+25-04-21.19:17:39.306 [http-nio-8181-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-04-21.19:17:39.307 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-04-21.19:17:39.314 [http-nio-8181-exec-1] INFO  DispatcherServlet      - Completed initialization in 6 ms
